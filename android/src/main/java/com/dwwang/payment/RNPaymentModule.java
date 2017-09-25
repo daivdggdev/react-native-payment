@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.text.TextUtils;
 
 import com.alipay.sdk.app.PayTask;
+import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.WritableMap;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
@@ -51,7 +53,12 @@ public class RNPaymentModule extends ReactContextBaseJavaModule {
                     PayResult payResult = new PayResult(result);
                     String resultInfo = payResult.getResult();// 同步返回需要验证的信息
                     String resultStatus = payResult.getResultStatus();
-                    promise.resolve((TextUtils.equals(resultStatus, "9000")));
+
+                    WritableMap params = Arguments.createMap();
+                    params.putString("resultInfo", resultInfo);
+                    params.putString("resultStatus", resultStatus);
+
+                    promise.resolve(params);
                 } catch (Exception e) {
                     promise.reject("EUNSPECIFIED", e.getMessage());
                 }
