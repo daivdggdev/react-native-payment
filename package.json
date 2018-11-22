@@ -1,6 +1,6 @@
 {
   "name": "react-native-payment",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "payment for react native",
   "main": "index.js",
   "scripts": {
