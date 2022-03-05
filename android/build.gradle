@@ -31,6 +31,6 @@ android {
 
 dependencies {
   compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
-  compile fileTree(include: ['*.jar'], dir: 'libs')
+  compile (name: 'alipaysdk-15.8.08.220217103129', ext: 'aar')
   compile 'com.facebook.react:react-native:+'
 }
