@@ -31,6 +31,7 @@ android {
 
 dependencies {
   compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
-  compile (name: 'alipaysdk-15.8.08.220217103129', ext: 'aar')
+  api 'com.alipay.sdk:alipaysdk-android:+@aar'
+  // compile (name: 'alipaysdk-15.8.08.220217103129', ext: 'aar')
   compile 'com.facebook.react:react-native:+'
 }
